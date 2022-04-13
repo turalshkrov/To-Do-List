@@ -87,4 +87,12 @@ sortIcon.addEventListener('click', (e) => {
                                 <input id="input" type="text">
                                 <img class="remove-icon" src="images/remove-icon.svg" alt="">
                             </div>`;
+    removeIcons = [...document.querySelectorAll('.remove-icon')];
+    removeIcons.forEach(item => {
+        item.addEventListener('click', (e) => {
+            if(e.target.parentElement.firstElementChild.id != 'input') {
+                e.target.parentElement.remove();
+            }
+        })
+    })
 })
