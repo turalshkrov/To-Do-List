@@ -4,8 +4,8 @@ let list = document.querySelector('.list')
 let sortClickCounter = 0;
 let storageArray = JSON.parse(localStorage.getItem('toDoList'));
 
-if (sortArray.length == 0) {
-    sortArray = [];
+if (storageArray.length == 0) {
+    storageArray = [];
 }
 
 storageArray.forEach(item => {
