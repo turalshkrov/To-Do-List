@@ -1,9 +1,29 @@
 let sortIcon = document.querySelector('#sort-icon');
-var removeIcons = [...document.querySelectorAll('.remove-icon')];
 let addButton = document.querySelector('.add');
 let list = document.querySelector('.list')
-let storageArray = [];
 let sortClickCounter = 0;
+let storageArray = JSON.parse(localStorage.getItem('toDoList'));
+
+storageArray.forEach(item => {
+    list.innerHTML += `<div class="list-item">
+        <p class="to-do-text">${item}</P>
+        <img class="remove-icon" src="images/remove-icon.svg" alt="">
+    </div>`;
+})
+
+list.innerHTML += `<div class="list-input">
+    <input id="input" type="text">
+    <img class="remove-icon" src="images/remove-icon.svg" alt="">
+</div>`;
+
+list.addEventListener('click', (e) => {
+    if (e.target.className === 'remove-icon' && e.target.parentElement.firstElementChild.id !== 'input') {
+        e.target.parentElement.remove();
+        let itemText = e.target.parentElement.firstElementChild.innerText;
+        storageArray.splice(storageArray.indexOf(itemText),1);
+        localStorage.setItem('toDoList', JSON.stringify(storageArray));
+    }
+})
 
 sortIcon.addEventListener('mouseover', (e) => {
     if (sortClickCounter % 2 === 1) {
@@ -33,22 +53,11 @@ addButton.addEventListener('click', () => {
         listItem.parentElement.className = 'list-item';
         listItem.remove();
         list.innerHTML += `<div class="list-input">
-                                <input id="input" type="text">
-                                <img class="remove-icon" src="images/remove-icon.svg" alt="">
-                            </div>`;
+            <input id="input" type="text">
+            <img class="remove-icon" src="images/remove-icon.svg" alt="">
+        </div>`;
+        localStorage.setItem('toDoList', JSON.stringify(storageArray));
     }
-    removeIcons = [...document.querySelectorAll('.remove-icon')];
-    removeIcons.forEach(item => {
-        item.addEventListener('click', (e) => {
-            if(e.target.parentElement.firstElementChild.id != 'input') {
-                e.target.parentElement.remove();
-            }
-        })
-    })
-})
-
-sortIcon.addEventListener('click', (e) => {
-
 })
 
 function sortArray(arr) {
@@ -68,6 +77,7 @@ function sortReverseArray(arr) {
         if(aElement > bElement) return -1;
     });
 }
+
 sortIcon.addEventListener('click', (e) => {
     let listItems = [...document.querySelectorAll('.list-item')];
     document.querySelector('.list').innerHTML = ``;
@@ -84,15 +94,8 @@ sortIcon.addEventListener('click', (e) => {
         document.querySelector('.list').appendChild(item);
     })
     list.innerHTML += `<div class="list-input">
-                                <input id="input" type="text">
-                                <img class="remove-icon" src="images/remove-icon.svg" alt="">
-                            </div>`;
-    removeIcons = [...document.querySelectorAll('.remove-icon')];
-    removeIcons.forEach(item => {
-        item.addEventListener('click', (e) => {
-            if(e.target.parentElement.firstElementChild.id != 'input') {
-                e.target.parentElement.remove();
-            }
-        })
-    })
+        <input id="input" type="text">
+        <img class="remove-icon" src="images/remove-icon.svg" alt="">
+    </div>`;
+
 })
