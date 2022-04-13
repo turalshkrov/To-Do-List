@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    width: 100%;
+    height: 100vh;
+}
+.card {
+    position: relative;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 336px;
+}
+.bar {
+    height: 20px;
+    background: #FFDC40;
+}
+.title {
+    margin-top: 13px;
+    margin-bottom: 15px;
+}
+.title-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 900;
+}
+.sort {
+    margin: 0 30px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 12px;
+}
+
+.card, .list {
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.list {
+    margin: 0 22px 18px 28px;
+    padding: 0 30px 0 27px;
+}
+.list-item, .list-input {
+    display: flex;
+    justify-content: space-between;
+}
+input, .to-do-text {
+    border: none;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 16px;
+    margin: 12px 0;
+    border: none;
+}
+input:focus {
+    outline: none;
+}
+.add {
+    width: 150px;
+    height: 42px;
+    display: flex;
+    background: #833AE0;
+    border-radius: 71px;
+    margin: auto;
+    margin-bottom: 19px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+}
+.add-icon {
+    background-color: #9953F1;
+    width: 42px;
+    border-radius: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-text {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sort-icon, .remove-icon, .add {
+    cursor: pointer;
+}
+.remove-icon:hover {
+    content: url('images/remove-icon-hover.svg');
+}
