@@ -4,6 +4,10 @@ let list = document.querySelector('.list')
 let sortClickCounter = 0;
 let storageArray = JSON.parse(localStorage.getItem('toDoList'));
 
+if (sortArray.length == 0) {
+    sortArray = [];
+}
+
 storageArray.forEach(item => {
     list.innerHTML += `<div class="list-item">
         <p class="to-do-text">${item}</P>
