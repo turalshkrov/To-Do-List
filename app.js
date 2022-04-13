@@ -4,7 +4,7 @@ let list = document.querySelector('.list')
 let sortClickCounter = 0;
 let storageArray = JSON.parse(localStorage.getItem('toDoList'));
 
-if (storageArray.length == 0) {
+if (storageArray === null) {
     storageArray = [];
 }
 
